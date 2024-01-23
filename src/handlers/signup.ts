@@ -65,22 +65,16 @@ const signupConversation = async (
     user_phone_number = contactCtx.message.contact.phone_number;
     
     await ctx.reply("Registering you..... ⏳");
-    try {
-        await createUser({
-            id: user.id,
-            is_bot: user.is_bot,
-            first_name: user_first_name,
-            username: user.username,
-            phone_number: user_phone_number,
-            language_code: user.language_code,
-        })
-        await ctx.reply("Thank you for signing up! You can now use all the features.")
-    } catch (err) {
-        await ctx.reply("Something were wrong! Don't worry it's not your fault. Maybe try again.");
-        logger.error(`[signup][Error while creating user]`, {
-            metadata: err,
-        });
-    }
+
+    await createUser({
+        id: user.id,
+        is_bot: user.is_bot,
+        first_name: user_first_name,
+        username: user.username,
+        phone_number: user_phone_number,
+        language_code: user.language_code,
+    })
+    await ctx.reply("Thank you for signing up! You can now use all the features.")
 };
 
 export { signupConversation };

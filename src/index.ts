@@ -86,7 +86,8 @@ bot.hears("Cancel", async (ctx) => {
 });
 
 // Error handling
-bot.catch((err) => {
+bot.catch( async(err) => {
+    await ctx.reply("Something were wrong! Don't worry it's not your fault. Maybe try again.");
     const ctx = err.ctx;
     logger.error(
         `[bot-catch][Error while handling update ${ctx.update.update_id}]`,

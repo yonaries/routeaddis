@@ -66,6 +66,7 @@ const findRouteConversation = async (
     }
 
     await ctx.reply('Finding routes...');
+    await ctx.reply('Sorry, where could not find you a route. Maybe as some people around you this time.');
 };
 
 export { findRouteConversation };
